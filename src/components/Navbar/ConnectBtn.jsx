@@ -1,7 +1,8 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const ConnectBtn = () => {
   return (
-    <button>connect wallet</button>
+    <ConnectButton />
   )
 }
 
