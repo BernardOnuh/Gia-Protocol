@@ -2,8 +2,24 @@ import ExploreNftStyles from '../assets/styles/ExploreNftStyles.js';
 import NavBarExplore from '../components/Navbar/NavbarExplore.jsx';
 import { data } from '../assets/inAppData/Explore.js';
 import NftCardItem from '../components/Cards/NftCardItem.jsx';
-
+import axios from 'axios'
+import { useState,useEffect } from 'react';
 const ExploreNft = () => {
+
+	const [data, setData] = useState([]);
+	useEffect(() => {
+	  const fetchData = async () => {
+		try {
+		  const response = await axios.get('https://gaia-database.onrender.com/api/gaia');
+		  setData(response.data);
+		} catch (error) {
+		  console.error('Error fetching data:', error);
+		}
+	  };
+  
+	  fetchData();
+	}, []);
+	console.log(data)
 	return (
 		<ExploreNftStyles>
 			<NavBarExplore />
@@ -28,11 +44,10 @@ const ExploreNft = () => {
 				</div>
 
 				<div className='explore-cardlist'>
-					{data.map((dataItem) => {
-						const { id } = dataItem;
-						return <NftCardItem key={id} dataItem={dataItem} />;
-					})}
-				</div>
+          {data.map((item, index) => (
+            <NftCardItem key={index} dataItem={item} />
+          ))}
+        </div>
 			</div>
 		</ExploreNftStyles>
 	);

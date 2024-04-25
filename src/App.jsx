@@ -13,6 +13,8 @@ import AdminPlatform from "./pages/Admin/AdminPlatform";
 import RafflePage from "./pages/RafflePage";
 import RaffleItemPage from "./pages/RaffleItemPage";
 import ErrorPage from "./pages/ErrorPage";
+import Footer from "./components/Navbar/Footer";
+
 
 function App() {
 	return (
@@ -43,6 +45,7 @@ function App() {
 
 				<Route exact path="*" element={<ErrorPage />}/>
 			</Routes>
+			<Footer/>
 		</main>
 	);
 }

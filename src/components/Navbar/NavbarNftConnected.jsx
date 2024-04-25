@@ -37,7 +37,7 @@ const NavbarNftConnected = () => {
 						<Link to='/raffle'>raffles</Link>
 					</li>
 					<li>
-						<Link to='/projects'>Projects</Link>
+						<Link to='/nfts'>Projects</Link>
 					</li>
 				</ul>
 			)}

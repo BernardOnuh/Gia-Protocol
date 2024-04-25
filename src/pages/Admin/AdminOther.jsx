@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react';
 import AdminFeeStyles from '../../assets/styles/AdminFeeStyles';
 import AdminLink from '../../components/AdminLink/AdminLink';
 import NavbarNftConnected from '../../components/Navbar/NavbarNftConnected';
+import { StakingFactory,StakingFactoryAbi,StakingFactoryNew,StakingFactoryNewAbi,StakingAbi } from '../../../contract/contract';
+import { useAccount,useWriteContract,useChainId } from 'wagmi'
+import { useReadContract } from 'wagmi'
 
 const AdminOther = () => {
 	const [href, setHref] = useState('');
 	// Scroll page
+	const account = useAccount()
 	useEffect(() => {
 		const href = window.location.href.substring(
 			window.location.href.lastIndexOf('#') + 1,
@@ -17,6 +21,9 @@ const AdminOther = () => {
 			element.scrollIntoView({ behavior: 'smooth' });
 		}
 	}, [href]);
+	
+
+	 
 	return (
 		<AdminFeeStyles>
 			<NavbarNftConnected />
